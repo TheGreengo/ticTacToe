@@ -7,6 +7,7 @@ class ticTacToe {
 private:
     string board[9];
     map<string,int> translator;
+    map<string,bool> left;
     size_t available;
 
 public:
@@ -15,6 +16,7 @@ public:
         string temp[] = {"a1","a2","a3","b1","b2","b3","c1","c2","c3"};
         for (int i = 0; i < 9; i++) {
             translator[temp[i]] = i;
+            left[temp[i]] = true;
         }
         for (auto & i : board) {
             i = ".";
@@ -24,14 +26,39 @@ public:
     ~ticTacToe(){}
 
     // TODO: We need to figure out some stuff
-    // second: create a function to update a single cell
     // third: create a function to get acceptable input
     // fourth: create a function to parse acceptable input
     // fifth: create a function to check if there is a win
 
-    void func() {
-        cout << translator["c3"];
+    void updateCell(int spot, bool player) {
+        if (player) {
+            board[spot] = "X";
+        } else {
+            board[spot] = "O";
+        }
     }
+
+    // string getInput() {
+    //     bool acceptable = false;
+    //     cout << "Please enter the cell you would like to play in: ";
+    //     string inpt;
+    //     cin >> inpt;
+    //     if (left.count(inpt) && left[inpt] == true) {
+    //         cout << "Great move!";
+    //         acceptable = true;
+    //     }
+    //     while (!acceptable) {
+    //         if () {
+
+    //         }
+    //         else if () {
+
+    //         } else () {
+
+    //         }
+    //     }
+    //     return inpt;
+    // }
 
     void printBoard() {
         int let[] = {1,2,3};
