@@ -4,6 +4,6 @@
 
 int main() {
     ticTacToe board = ticTacToe();
-    board.printBoard();
+    board.makeMove();
     return 0;
 }
