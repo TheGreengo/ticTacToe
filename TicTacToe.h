@@ -24,15 +24,31 @@ public:
     ~ticTacToe(){}
 
     // TODO: We need to figure out some stuff
-    // third: create a function to get acceptable input
-    // fourth: create a function to parse acceptable input
     // fifth: create a function to check if there is a win
+    // sixth: get a function that gets the computer's move
+    // seventh: finish it
 
     void makeMove(){
         printBoard();
         string inpt = getInput();
         left[inpt] = false;
         updateCell(translator[inpt],true);
+    }
+
+    void computerMove() {
+        string temp[] = {"a1","a2","a3","b1","b2","b3","c1","c2","c3"};
+        string plays[9];
+        unsigned int number = 0;
+        for (unsigned int i = 0; i < 9; i++) {
+            if (left[temp[i]]) {
+                plays[i] = temp[i];
+                number++;
+            }
+        }
+        cout << plays[0];
+        unsigned int play = rand() % number;
+        left[plays[play]] = false;
+        updateCell(translator[plays[play]], false);
     }
 
     void updateCell(int spot, bool player) {
